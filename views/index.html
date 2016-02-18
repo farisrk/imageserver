@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Server</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="../js/utils.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $(document).on('click', '#doUpload', function() {
+                uploadNow();
+            })
+
+            function uploadNow() {
+                $('.progress').fadeIn(100);
+                var uploadURL = '/upload';
+                var uploadFile = $('.uploadPic');
+                if (uploadFile.val() != '') {
+                    console.log('upload file:', uploadFile[0].files);
+
+                    var form = new FormData();
+                    var files = uploadFile[0].files;
+                    form.append('app', $('.appInput').val());
+                    form.append('numFiles', files.length);
+                    for (var i = 0; i < files.length; i++) {
+                        form.append('upload'+i, files[i]);
+                    };
+
+                    // Perform the AJAX POST request and send the file
+                    ajax({
+                        method: 'post',
+                        url: uploadURL,
+                        payload: form,
+                        success: function(xhr) {
+                            $('.progress').fadeOut(200);
+                            uploadFile.val('');
+                        },
+                        progress: function(e) {
+                            if (e.lengthComputable) {
+                                var pctg = Math.round((e.loaded * 100) / e.total);
+                                $('.progress').css('width', (pctg + '%'));
+
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="topDeck">
+            <div class="logo">
+                <h1>Image Server</h1>
+            </div>
+            <div class="controls">
+                <div class="appLabel">
+                    App Name:
+                    <input type="text" name="app" class="appInput" />
+                </div>
+                <div>
+                    <input type="file" name="uploadPic" class="uploadPic" multiple>
+                </div>
+                <div>
+                    <button id="doUpload">Upload</button>
+                </div>
+                <div class="progressBarDiv">
+                    <div class="progress"></div>
+                </div>
+                <div><h5 class="status"></h5></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

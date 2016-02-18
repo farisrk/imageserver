@@ -1,0 +1,8 @@
+{
+    "log": "../logs",
+    "rotate": 1,
+    "generateNewImages": 0,
+    "imageRepo": "/image/GamesImage",
+    "uploadDir": "/raw",
+    "workDir": "/serve"
+}

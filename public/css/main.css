@@ -1,0 +1,122 @@
+@import url(http://fonts.googleapis.com/css?family=Keania+One);
+
+body,html {
+    position:relative;
+    width:100%;
+    height:100%;
+    margin:0px;
+    padding:0px;
+}
+
+.container {
+    position:relative;
+    height:100%;
+    overflow: hidden;
+}
+
+.container .topDeck {
+    position: relative;
+    top:0px;
+    width:100%;
+    min-width:960px;
+    height:150px;
+    background:rgb(60,60,60);
+    border-bottom:4px solid rgb(50,150,255);
+    border-top: 4px solid rgb(50,150,255);
+    z-index:1;
+}
+
+.topDeck .logo {
+    position:absolute;
+    background: rgb(0, 158, 255);
+    height: 150px;
+    width: 317px;
+}
+
+.topDeck .controls {
+    position:absolute;
+    /* border:1px solid red; */
+    width:700px;
+    height:105px;
+    left:320px;
+    top:1px;
+}
+
+.topDeck .controls .appLabel {
+    color:#FFF;
+    margin: 5px;
+    padding: 5px;
+    font-weight: lighter;
+    background:rgb(73,73,73);
+    border: none;
+    display: inline-block;
+    outline: none;
+    width:400px;
+
+    top: 3px;
+    left: 3px;
+}
+
+.topDeck .controls .appInput {
+    width:315px;
+}
+
+.topDeck .controls .uploadPic {
+    color:#FFF;
+    margin: 5px;
+
+    padding: 5px;
+    font-weight: lighter;
+    /*     border:1px solid #000; */
+    width:400px;
+    top: 10px;
+    left: 3px;
+    background:rgb(73,73,73);
+    border: none;
+    display: inline-block;
+    outline: none;
+    /* content: 'Select some files'; */
+}
+
+.topDeck .controls #doUpload {
+    top: 15px;
+    left: 3px;
+    margin: 5px;
+
+    padding: 5px;
+    border: none;
+    background: rgb(150, 190, 150);
+}
+
+.topDeck .controls .progressBarDiv {
+    width: 394px;
+    height: 3px;
+}
+
+.progressBarDiv .progress {
+    position:relative;
+    background: rgb(163, 229, 163);
+    height:2px;
+    width: 0%;
+    box-shadow:0px 0px 5px rgb(0,255,0);
+}
+
+.topDeck .controls .status {
+    position:relative;
+    color: #AFAFAF;
+    margin:0px;
+    padding:0px;
+    font-family:sans-serif;
+    font-weight:normal;
+    left:10px;
+    display:none;
+}
+
+.logo h1 {
+    position:absolute;
+    left: 67px;
+    margin: 0px;
+    top: 16px;
+    font-family: 'Keania One', cursive;
+    color: #FFF;
+}

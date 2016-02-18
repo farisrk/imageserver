@@ -1,0 +1,8 @@
+{
+    "log": "./logs",
+    "rotate": 0,
+    "generateNewImages": 0,
+    "imageRepo": "/home/main/MyImageServer/content",
+    "uploadDir": "/raw",
+    "workDir": "/serve"
+}
